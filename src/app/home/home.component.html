@@ -1,0 +1,11 @@
+<mat-form-field class="example-form-field">
+  <input matInput type="text" placeholder="Enter url" [(ngModel)]="value">
+  <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<button mat-raised-button color="primary" (click) = "logOut()">Log Out</button>
+<button mat-raised-button color="primary" (click) = "sendUrl()">Enter</button>
+<div class="list-group">
+  <a  href = "{{'http://localhost:3000/' + url.unique_id}}" target="_blank" class="list-group-item list-group-item-action" *ngFor = "let url of listOfUrls" (click) = "checkShortUrl(url)">{{'http://localhost:3000/' + url.unique_id}}</a>
+</div>
